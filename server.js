@@ -49,7 +49,9 @@ app.get("/health", (req, res) => {
 });
 
 // ── Analysis endpoint ─────────────────────────────────────────────────────
-app.post("/analyze", requestRateLimiter, analyzeRouter);
+// Must use app.use() not app.post() so Express strips the "/analyze" prefix
+// before handing off to the router (which handles the root "/" path).
+app.use("/analyze", requestRateLimiter, analyzeRouter);
 
 // ── 404 handler ───────────────────────────────────────────────────────────
 app.use((req, res) => {
