@@ -9,7 +9,8 @@ const client = new Anthropic({ apiKey: process.env.ANTHROPIC_API_KEY });
 
 const CLAUDE_MODEL = "claude-sonnet-4-20250514";
 const MAX_TOKENS = 1024;
-const FREE_TIER_MONTHLY_LIMIT = 5;
+// TESTING: limit temporarily set to 99999 — set back to 5 when done testing
+const FREE_TIER_MONTHLY_LIMIT = 99999;
 
 const SYSTEM_PROMPT = `You are an expert cybersecurity analyst specializing in phishing email detection. You will analyze emails and identify phishing attempts with high accuracy.
 
